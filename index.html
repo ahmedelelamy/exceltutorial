@@ -1,0 +1,2252 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليلك الشامل للإكسل</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Light gray background */
+            color: #374151; /* Dark gray text */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        .section-title {
+            border-bottom: 2px solid #10B981; /* Green border - previously indigo */
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 0.75rem; /* Rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .code-block {
+            background-color: #D1FAE5; /* Light green - previously light indigo */
+            color: #047857; /* Darker green - previously darker indigo */
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            font-family: monospace;
+            overflow-x: auto;
+            direction: ltr; /* Ensure code is LTR */
+            text-align: left; /* Align code to left */
+        }
+        .table-container {
+            overflow-x: auto;
+            margin-top: 1rem; /* Add some margin above tables for spacing */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        th, td {
+            border: 1px solid #d1d5db; /* Light gray border */
+            padding: 0.75rem;
+            text-align: right;
+        }
+        th {
+            background-color: #ECFDF5; /* Lighter green - previously lighter indigo */
+            font-weight: 600;
+        }
+        .nav-button {
+            @apply px-4 py-2 rounded-md transition-colors duration-200;
+        }
+        .nav-button.active {
+            @apply bg-emerald-800; /* Darker green for active button - previously indigo */
+        }
+        .nav-button:hover:not(.active) {
+            @apply bg-emerald-600; /* Medium green for hover - previously indigo */
+        }
+        .content-section {
+            display: none; /* Hidden by default */
+        }
+        .content-section.active {
+            display: block; /* Shown when active */
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Header and Navigation -->
+    <header class="bg-emerald-700 text-white py-4 rounded-b-xl shadow-lg"> <!-- Green header - previously indigo -->
+        <div class="container flex flex-col md:flex-row items-center justify-between">
+            <h1 class="text-3xl font-bold mb-4 md:mb-0">دليلك الشامل للإكسل</h1>
+            <nav>
+                <ul class="flex flex-wrap justify-center gap-2 md:gap-4">
+                    <li><button class="nav-button active" data-target="home">الرئيسية</button></li>
+                    <li><button class="nav-button" data-target="formulas">معادلات الإكسل</button></li>
+                    <li><button class="nav-button" data-target="shortcuts">اختصارات الإكسل</button></li>
+                    <li><button class="nav-button" data-target="problems">حلول مشاكل الإكسل</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container py-8">
+        <!-- Home Section (About Me) -->
+        <section id="home" class="content-section active mb-12">
+            <h2 class="text-3xl font-semibold section-title text-emerald-800">مرحباً بك في دليلك الشامل للإكسل!</h2> <!-- Green title - previously indigo -->
+            <div class="card">
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-6 mb-6">
+                    <div class="flex-shrink-0">
+                        <img src="A young Egyptian mansssss wearing a hoodie in Excel ....png" alt="[صورة أحمد العليمي يرتدي هودي أخضر]" class="w-48 h-48 object-cover rounded-full shadow-lg border-4 border-emerald-500">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-emerald-700 mb-2">أحمد العليمي</h3>
+                        <p class="text-lg mb-4">
+                            أهلاً وسهلاً بك في هذا الموقع المتواضع، الذي يهدف إلى أن يكون مرجعك السريع والشامل لكل ما يتعلق ببرنامج مايكروسوفت إكسل.
+                            اسمي أحمد العليمي، وأنا هنا لأشاركك خبرتي في هذا البرنامج القوي.
+                        </p>
+                        <p class="text-lg mb-4">
+                            سواء كنت مبتدئاً تسعى لتعلم الأساسيات، أو مستخدماً متقدماً تبحث عن اختصارات ومعادلات لزيادة إنتاجيتك،
+                            فقد صُمم هذا الدليل لمساعدتك. ستجد هنا شروحات وافية لأهم معادلات الإكسل،
+                            وقائمة بأكثر الاختصارات استخداماً لتوفير وقتك وجهدك،
+                            بالإضافة إلى حلول لبعض المشاكل الشائعة التي قد تواجهها أثناء عملك على البرنامج.
+                        </p>
+                        <p class="text-lg">
+                            أتمنى أن تجد هذا الموقع مفيداً وأن يساعدك في إتقان إكسل والعمل عليه بكفاءة أكبر.
+                            لا تتردد في استكشاف الأقسام المختلفة والاستفادة من المحتوى المقدم.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4 mt-6">
+                    <img src="_A young Egyptian man wearing a hdddddddddoodie in Excel....png" alt="[صورة أحمد العليمي في مكتب زجاجي]" class="w-40 h-40 object-cover rounded-lg shadow-md border-2 border-emerald-300">
+                    <img src="_A young Egyptian man wearing a hohjkjjkodie in Excel....png" alt="[صورة أحمد العليمي يرتدي هودي أخضر ويحمل تابلت]" class="w-40 h-40 object-cover rounded-lg shadow-md border-2 border-emerald-300">
+                </div>
+            </div>
+
+            <!-- AI Feature Card -->
+            <div class="card mt-8">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">✨ مولد ومحلل دوال الإكسل بالذكاء الاصطناعي ✨</h3>
+                <p class="mb-4">
+                    اطلب من الذكاء الاصطناعي شرح أي دالة إكسل، أو اطلب منه إنشاء دالة بناءً على وصفك!
+                </p>
+                <textarea id="ai-input" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 mb-4" rows="4" placeholder="مثال: كيف أجمع الأرقام في العمود A إذا كانت أكبر من 10؟ أو اشرح لي دالة VLOOKUP؟"></textarea>
+                <button id="ai-button" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded-md transition-colors duration-200 shadow-md">
+                    احصل على المساعدة من الذكاء الاصطناعي
+                </button>
+                <div id="ai-loading" class="hidden text-center mt-4 text-emerald-700">
+                    <p>جاري التفكير... الرجاء الانتظار</p>
+                </div>
+                <div id="ai-output" class="card mt-4 hidden">
+                    <h4 class="text-xl font-semibold text-emerald-700 mb-2">الاستجابة:</h4>
+                    <div id="ai-response-content" class="text-gray-700"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulas Section -->
+        <section id="formulas" class="content-section mb-12">
+            <h2 class="text-3xl font-semibold section-title text-emerald-800">معادلات الإكسل الأساسية</h2> <!-- Green title - previously indigo -->
+            <p class="text-lg mb-6">
+                هذا القسم سيتم تحديثه باستمرار ليشمل أكثر من 200 دالة من دوال الإكسل الهامة مع شروحات وأمثلة.
+                تعلم هذه المعادلات سيساعدك على تحليل البيانات بكفاءة عالية.
+            </p>
+
+            <!-- SUM Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">1. SUM (الجمع)</h3>
+                <p class="mb-2">تستخدم لجمع نطاق من الأرقام.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =SUM(number1, [number2], ...)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =SUM(A1:A10) <br>
+                    يجمع الأرقام من الخلية A1 إلى A10.
+                </div>
+            </div>
+
+            <!-- AVERAGE Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">2. AVERAGE (المتوسط)</h3>
+                <p class="mb-2">تحسب متوسط نطاق من الأرقام.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =AVERAGE(number1, [number2], ...)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =AVERAGE(B1:B5) <br>
+                    يحسب متوسط الأرقام في الخلايا من B1 إلى B5.
+                </div>
+            </div>
+
+            <!-- IF Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">3. IF (إذا)</h3>
+                <p class="mb-2">تتحقق من شرط معين وتعيد قيمة إذا كان الشرط صحيحًا، وقيمة أخرى إذا كان خاطئًا.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =IF(logical_test, value_if_true, [value_if_false])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =IF(C1>100, "ناجح", "راسب") <br>
+                    إذا كانت قيمة C1 أكبر من 100، تعرض "ناجح"، وإلا تعرض "راسب".
+                </div>
+            </div>
+
+            <!-- VLOOKUP Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">4. VLOOKUP (البحث العمودي)</h3>
+                <p class="mb-2">تبحث عن قيمة في العمود الأول من جدول وتعيد قيمة من نفس الصف في عمود محدد.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =VLOOKUP("تفاح", A1:C10, 2, FALSE) <br>
+                    تبحث عن "تفاح" في العمود A من النطاق A1:C10 وتعيد القيمة من العمود الثاني (B) في نفس الصف.
+                </div>
+            </div>
+
+            <!-- CONCATENATE Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">5. CONCATENATE (دمج النصوص)</h3>
+                <p class="mb-2">تدمج سلسلتين نصيتين أو أكثر في سلسلة واحدة. (يمكن استخدام & بدلاً منها)</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =CONCATENATE(text1, [text2], ...)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =CONCATENATE("مرحباً", " ", "بك") <br>
+                    تدمج النصوص لتعرض "مرحباً بك".
+                </div>
+            </div>
+
+            <!-- COUNTIF Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">6. COUNTIF (العد بشرط)</h3>
+                <p class="mb-2">تحسب عدد الخلايا ضمن نطاق معين تستوفي شرطاً محدداً.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =COUNTIF(range, criteria)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =COUNTIF(A1:A10, ">50") <br>
+                    يحسب عدد الخلايا في النطاق A1:A10 التي تحتوي على قيم أكبر من 50.
+                </div>
+            </div>
+
+            <!-- SUMIFS Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">7. SUMIFS (الجمع بشروط متعددة)</h3>
+                <p class="mb-2">تجمع الخلايا في نطاق يستوفي شروطاً متعددة.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =SUMIFS(sum_range, criteria_range1, criteria1, [criteria_range2, criteria2], ...)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =SUMIFS(C1:C10, A1:A10, "منتج أ", B1:B10, ">100") <br>
+                    يجمع القيم في C1:C10 حيث يكون المنتج "منتج أ" في العمود A والكمية أكبر من 100 في العمود B.
+                </div>
+            </div>
+
+            <!-- INDEX MATCH Combination -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">8. INDEX + MATCH (البحث المتقدم)</h3>
+                <p class="mb-2">تعتبر بديلاً قوياً لـ VLOOKUP، وتسمح بالبحث في أي عمود وليس فقط العمود الأول.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =INDEX(array, MATCH(lookup_value, lookup_array, [match_type]))
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =INDEX(B1:B10, MATCH("معرف_المنتج", A1:A10, 0)) <br>
+                    تبحث عن "معرف_المنتج" في العمود A وتعيد القيمة المقابلة من العمود B.
+                </div>
+            </div>
+
+            <!-- TEXT Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">9. TEXT (تنسيق النص)</h3>
+                <p class="mb-2">تحول قيمة إلى نص وتطبق عليها تنسيقاً رقمياً محدداً.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =TEXT(value, format_text)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =TEXT(A1, "yyyy-mm-dd") <br>
+                    يحول التاريخ في الخلية A1 إلى تنسيق "سنة-شهر-يوم".
+                </div>
+            </div>
+
+            <!-- DATE Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">10. DATE (التاريخ)</h3>
+                <p class="mb-2">تنشئ تاريخاً صالحاً من سنة وشهر ويوم محددين.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =DATE(year, month, day)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =DATE(2023, 7, 29) <br>
+                    ينشئ تاريخ 29 يوليو 2023.
+                </div>
+            </div>
+
+            <!-- LEFT Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">11. LEFT (يسار)</h3>
+                <p class="mb-2">تستخرج عدداً محدداً من الأحرف من بداية سلسلة نصية.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =LEFT(text, [num_chars])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =LEFT("مرحباً بك", 4) <br>
+                    تعيد "مرح".
+                </div>
+            </div>
+
+            <!-- RIGHT Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">12. RIGHT (يمين)</h3>
+                <p class="mb-2">تستخرج عدداً محدداً من الأحرف من نهاية سلسلة نصية.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =RIGHT(text, [num_chars])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =RIGHT("مرحباً بك", 3) <br>
+                    تعيد "بك".
+                </div>
+            </div>
+
+            <!-- MID Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">13. MID (وسط)</h3>
+                <p class="mb-2">تستخرج عدداً محدداً من الأحرف من منتصف سلسلة نصية، بدءاً من موضع معين.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =MID(text, start_num, num_chars)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =MID("دليل الإكسل", 5, 6) <br>
+                    تعيد "الإكسل".
+                </div>
+            </div>
+
+            <!-- LEN Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">14. LEN (طول النص)</h3>
+                <p class="mb-2">تحسب عدد الأحرف في سلسلة نصية.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =LEN(text)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =LEN("الإكسل") <br>
+                    تعيد 6.
+                </div>
+            </div>
+
+            <!-- TRIM Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">15. TRIM (إزالة المسافات الزائدة)</h3>
+                <p class="mb-2">تزيل جميع المسافات الزائدة من النص باستثناء المسافات الفردية بين الكلمات.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =TRIM(text)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =TRIM("  نص  بمسافات   زائدة  ") <br>
+                    تعيد "نص بمسافات زائدة".
+                </div>
+            </div>
+
+            <!-- FIND Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">16. FIND (البحث عن نص)</h3>
+                <p class="mb-2">تبحث عن سلسلة نصية داخل سلسلة نصية أخرى، وتعيد موضع البداية للسلسلة الأولى.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =FIND(find_text, within_text, [start_num])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =FIND("اكسل", "دليل الاكسل") <br>
+                    تعيد 6 (موضع حرف الألف في "الاكسل").
+                </div>
+            </div>
+
+            <!-- REPLACE Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">17. REPLACE (استبدال نص)</h3>
+                <p class="mb-2">تستبدل جزءاً من سلسلة نصية بسلسلة نصية أخرى، بناءً على عدد محدد من الأحرف.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =REPLACE(old_text, start_num, num_chars, new_text)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =REPLACE("أهلاً بك", 6, 2, "يا صديقي") <br>
+                    تعيد "أهلاً يا صديقي".
+                </div>
+            </div>
+
+            <!-- SUBSTITUTE Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">18. SUBSTITUTE (استبدال نص محدد)</h3>
+                <p class="mb-2">تستبدل جميع تكرارات نص معين بنص آخر في سلسلة نصية.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =SUBSTITUTE(text, old_text, new_text, [instance_num])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =SUBSTITUTE("تفاح أحمر، تفاح أخضر", "تفاح", "برتقال") <br>
+                    تعيد "برتقال أحمر، برتقال أخضر".
+                </div>
+            </div>
+
+            <!-- TODAY Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">19. TODAY (تاريخ اليوم)</h3>
+                <p class="mb-2">تعيد تاريخ اليوم الحالي.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =TODAY()
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =TODAY() <br>
+                    تعيد تاريخ اليوم (مثلاً: 2023-07-29).
+                </div>
+            </div>
+
+            <!-- NOW Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">20. NOW (التاريخ والوقت الحالي)</h3>
+                <p class="mb-2">تعيد التاريخ والوقت الحاليين.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =NOW()
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =NOW() <br>
+                    تعيد التاريخ والوقت الحاليين (مثلاً: 2023-07-29 10:30).
+                </div>
+            </div>
+
+            <!-- MAX Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">21. MAX (الحد الأقصى)</h3>
+                <p class="mb-2">تعيد أكبر قيمة في قائمة من القيم أو نطاق.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =MAX(number1, [number2], ...)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =MAX(A1:A10) <br>
+                    تعيد أكبر قيمة في النطاق A1:A10.
+                </div>
+            </div>
+
+            <!-- MIN Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">22. MIN (الحد الأدنى)</h3>
+                <p class="mb-2">تعيد أصغر قيمة في قائمة من القيم أو نطاق.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =MIN(number1, [number2], ...)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =MIN(A1:A10) <br>
+                    تعيد أصغر قيمة في النطاق A1:A10.
+                </div>
+            </div>
+
+            <!-- ROUND Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">23. ROUND (التقريب)</h3>
+                <p class="mb-2">تقرب رقماً إلى عدد محدد من المنازل العشرية.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =ROUND(number, num_digits)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =ROUND(3.14159, 2) <br>
+                    تعيد 3.14.
+                </div>
+            </div>
+
+            <!-- CEILING Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">24. CEILING (التقريب للأعلى)</h3>
+                <p class="mb-2">تقرب رقماً إلى أقرب مضاعف للعدد المحدد (الأعلى).</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =CEILING(number, significance)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =CEILING(4.3, 1) <br>
+                    تعيد 5.
+                </div>
+            </div>
+
+            <!-- FLOOR Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">25. FLOOR (التقريب للأدنى)</h3>
+                <p class="mb-2">تقرب رقماً إلى أقرب مضاعف للعدد المحدد (الأدنى).</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =FLOOR(number, significance)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =FLOOR(4.7, 1) <br>
+                    تعيد 4.
+                </div>
+            </div>
+
+            <!-- RANDBETWEEN Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">26. RANDBETWEEN (رقم عشوائي بين)</h3>
+                <p class="mb-2">تعيد رقماً صحيحاً عشوائياً بين رقمين محددين.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =RANDBETWEEN(bottom, top)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =RANDBETWEEN(1, 100) <br>
+                    تعيد رقماً عشوائياً بين 1 و 100 (شاملة).
+                </div>
+            </div>
+
+            <!-- COUNT Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">27. COUNT (العد)</h3>
+                <p class="mb-2">تحسب عدد الخلايا التي تحتوي على أرقام في نطاق.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =COUNT(value1, [value2], ...)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =COUNT(A1:A10) <br>
+                    تحسب عدد الخلايا الرقمية في النطاق A1:A10.
+                </div>
+            </div>
+
+            <!-- COUNTA Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">28. COUNTA (العد غير الفارغ)</h3>
+                <p class="mb-2">تحسب عدد الخلايا غير الفارغة في نطاق.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =COUNTA(value1, [value2], ...)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =COUNTA(A1:A10) <br>
+                    تحسب عدد الخلايا غير الفارغة (نص أو أرقام) في النطاق A1:A10.
+                </div>
+            </div>
+
+            <!-- COUNTBLANK Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">29. COUNTBLANK (عد الخلايا الفارغة)</h3>
+                <p class="mb-2">تحسب عدد الخلايا الفارغة في نطاق معين.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =COUNTBLANK(range)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =COUNTBLANK(A1:A10) <br>
+                    تحسب عدد الخلايا الفارغة في النطاق A1:A10.
+                </div>
+            </div>
+
+            <!-- AND Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">30. AND (و)</h3>
+                <p class="mb-2">تعيد TRUE إذا كانت جميع الشروط صحيحة، وإلا تعيد FALSE.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =AND(logical1, [logical2], ...)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =AND(A1>10, B1<20) <br>
+                    تعيد TRUE إذا كانت A1 أكبر من 10 و B1 أقل من 20.
+                </div>
+            </div>
+
+            <!-- OR Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">31. OR (أو)</h3>
+                <p class="mb-2">تعيد TRUE إذا كان أي من الشروط صحيحاً، وإلا تعيد FALSE.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =OR(logical1, [logical2], ...)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =OR(A1>10, B1<20) <br>
+                    تعيد TRUE إذا كانت A1 أكبر من 10 أو B1 أقل من 20.
+                </div>
+            </div>
+
+            <!-- NOT Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">32. NOT (ليس)</h3>
+                <p class="mb-2">تعكس القيمة المنطقية لوسيطتها (TRUE تصبح FALSE، و FALSE تصبح TRUE).</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =NOT(logical)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =NOT(A1=10) <br>
+                    تعيد TRUE إذا كانت A1 لا تساوي 10.
+                </div>
+            </div>
+
+            <!-- IFERROR Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">33. IFERROR (إذا كان هناك خطأ)</h3>
+                <p class="mb-2">تعيد قيمة تحددها إذا كانت الصيغة تقيّم إلى خطأ، وإلا فتعيد نتيجة الصيغة.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =IFERROR(value, value_if_error)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =IFERROR(A1/B1, "خطأ في القسمة") <br>
+                    إذا كانت A1/B1 ينتج خطأ، تعرض "خطأ في القسمة"، وإلا تعرض نتيجة القسمة.
+                </div>
+            </div>
+
+            <!-- XLOOKUP Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">34. XLOOKUP (البحث المتقدم الجديد)</h3>
+                <p class="mb-2">تبحث عن عنصر في نطاق أو مصفوفة، ثم تعيد العنصر المقابل من نطاق أو مصفوفة ثانية. بديل أكثر مرونة لـ VLOOKUP و HLOOKUP.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found], [match_mode], [search_mode])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =XLOOKUP("معرف_المنتج", A:A, B:B, "غير موجود") <br>
+                    تبحث عن "معرف_المنتج" في العمود A وتعيد القيمة المقابلة من العمود B. إذا لم تجدها، تعرض "غير موجود".
+                </div>
+            </div>
+
+            <!-- UNIQUE Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">35. UNIQUE (القيم الفريدة)</h3>
+                <p class="mb-2">تعيد قائمة بالقيم الفريدة من نطاق أو مصفوفة.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =UNIQUE(array, [by_col], [exactly_once])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =UNIQUE(A1:A10) <br>
+                    تعيد قائمة بالقيم الفريدة الموجودة في النطاق A1:A10.
+                </div>
+            </div>
+
+            <!-- SORT Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">36. SORT (الفرز)</h3>
+                <p class="mb-2">تفرز نطاقاً أو مصفوفة حسب عمود أو صف محدد.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =SORT(array, [sort_index], [sort_order], [by_col])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =SORT(A1:B10, 2, 1) <br>
+                    تفرز النطاق A1:B10 بناءً على العمود الثاني (B) بترتيب تصاعدي.
+                </div>
+            </div>
+
+            <!-- FILTER Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">37. FILTER (التصفية)</h3>
+                <p class="mb-2">تقوم بتصفية نطاق من البيانات بناءً على المعايير التي تحددها.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =FILTER(array, include, [if_empty])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =FILTER(A1:C10, B1:B10="الرياض", "لا توجد بيانات") <br>
+                    تستخرج الصفوف من A1:C10 حيث تكون قيمة العمود B هي "الرياض".
+                </div>
+            </div>
+
+            <!-- SEQUENCE Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">38. SEQUENCE (سلسلة أرقام)</h3>
+                <p class="mb-2">تنشئ قائمة من الأرقام المتسلسلة في صف أو عمود أو مصفوفة.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =SEQUENCE(rows, [columns], [start], [step])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =SEQUENCE(5, 1, 10, 2) <br>
+                    تنشئ سلسلة من 5 أرقام في عمود واحد، تبدأ من 10 وتزيد بمقدار 2 (10, 12, 14, 16, 18).
+                </div>
+            </div>
+
+            <!-- RANDARRAY Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">39. RANDARRAY (مصفوفة عشوائية)</h3>
+                <p class="mb-2">تنشئ مصفوفة من الأرقام العشوائية.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =RANDARRAY([rows], [columns], [min], [max], [integer])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =RANDARRAY(3, 2, 1, 10, TRUE) <br>
+                    تنشئ مصفوفة 3x2 من الأرقام الصحيحة العشوائية بين 1 و 10.
+                </div>
+            </div>
+
+            <!-- CHOOSE Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">40. CHOOSE (اختر)</h3>
+                <p class="mb-2">تختار قيمة من قائمة قيم بناءً على رقم الفهرس.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =CHOOSE(index_num, value1, [value2], ...)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =CHOOSE(2, "أحمر", "أخضر", "أزرق") <br>
+                    تعيد "أخضر" (القيمة الثانية في القائمة).
+                </div>
+            </div>
+
+            <!-- Nested IF Example -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">41. IF المتداخلة (Nested IF)</h3>
+                <p class="mb-2">استخدام عدة دوال IF داخل بعضها البعض لاختبار شروط متعددة.</p>
+                <p class="font-semibold mb-1">الصيغة (مثال):</p>
+                <div class="code-block mb-3">
+                    =IF(A1>90, "ممتاز", IF(A1>80, "جيد جداً", IF(A1>70, "جيد", "مقبول")))
+                </div>
+                <p class="font-semibold mb-1">الوصف:</p>
+                <div class="code-block">
+                    تقييم الدرجة في A1: إذا كانت أكبر من 90 "ممتاز"، إذا كانت أكبر من 80 "جيد جداً"، وهكذا.
+                </div>
+            </div>
+
+            <!-- SUMPRODUCT Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">42. SUMPRODUCT (جمع حاصل الضرب)</h3>
+                <p class="mb-2">تضرب المكونات المقابلة في المصفوفات المحددة وتُرجع مجموع هذه النواتج.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =SUMPRODUCT(array1, [array2], [array3], ...)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =SUMPRODUCT(A1:A5, B1:B5) <br>
+                    يضرب كل خلية في A1:A5 بالخلية المقابلة في B1:B5 ثم يجمع النواتج. مفيد لحساب المجموع المرجح.
+                </div>
+            </div>
+
+            <!-- EOMONTH Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">43. EOMONTH (نهاية الشهر)</h3>
+                <p class="mb-2">تعيد تاريخ آخر يوم في الشهر قبل أو بعد عدد محدد من الأشهر.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =EOMONTH(start_date, months)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =EOMONTH(TODAY(), 0) <br>
+                    تعيد آخر يوم في الشهر الحالي.
+                </div>
+            </div>
+
+            <!-- NETWORKDAYS Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">44. NETWORKDAYS (أيام العمل الصافية)</h3>
+                <p class="mb-2">تعيد عدد أيام العمل الكاملة بين تاريخين (باستثناء عطلات نهاية الأسبوع والعطلات المحددة).</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =NETWORKDAYS(start_date, end_date, [holidays])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =NETWORKDAYS("2023-01-01", "2023-01-31") <br>
+                    تحسب أيام العمل في يناير 2023.
+                </div>
+            </div>
+
+            <!-- WORKDAY Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">45. WORKDAY (يوم العمل)</h3>
+                <p class="mb-2">تعيد تاريخاً يمثل عدد أيام العمل (باستثناء عطلات نهاية الأسبوع والعطلات المحددة) قبل أو بعد تاريخ البدء.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =WORKDAY(start_date, days, [holidays])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =WORKDAY(TODAY(), 5) <br>
+                    تعيد تاريخ يوم العمل بعد 5 أيام من اليوم.
+                </div>
+            </div>
+
+            <!-- DATEDIF Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">46. DATEDIF (الفرق بين التواريخ)</h3>
+                <p class="mb-2">تحسب عدد الأيام أو الأشهر أو السنوات بين تاريخين.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =DATEDIF(start_date, end_date, unit)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =DATEDIF("2020-01-01", TODAY(), "y") <br>
+                    تحسب عدد السنوات الكاملة بين 2020/01/01 وتاريخ اليوم.
+                </div>
+            </div>
+
+            <!-- INDIRECT Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">47. INDIRECT (غير مباشر)</h3>
+                <p class="mb-2">تعيد مرجعاً محدداً بسلسلة نصية. مفيدة لإنشاء مراجع ديناميكية.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =INDIRECT(ref_text, [a1])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    إذا كانت الخلية A1 تحتوي على "B5"، فإن <br>
+                    =INDIRECT(A1) <br>
+                    تعيد قيمة الخلية B5.
+                </div>
+            </div>
+
+            <!-- OFFSET Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">48. OFFSET (إزاحة)</h3>
+                <p class="mb-2">تعيد مرجعاً لنطاق يقع بعدد معين من الصفوف والأعمدة من مرجع معين.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =OFFSET(reference, rows, cols, [height], [width])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =OFFSET(A1, 2, 1) <br>
+                    تعيد الخلية التي تقع صفين لأسفل وعمود واحد لليمين من A1 (أي C3).
+                </div>
+            </div>
+
+            <!-- CHOOSECOLS Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">49. CHOOSECOLS (اختيار الأعمدة)</h3>
+                <p class="mb-2">تعيد الأعمدة المحددة من مصفوفة.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =CHOOSECOLS(array, col_num1, [col_num2], ...)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =CHOOSECOLS(A1:D10, 1, 3) <br>
+                    تعيد العمودين الأول والثالث من النطاق A1:D10.
+                </div>
+            </div>
+
+            <!-- CHOOSEROWS Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">50. CHOOSEROWS (اختيار الصفوف)</h3>
+                <p class="mb-2">تعيد الصفوف المحددة من مصفوفة.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =CHOOSEROWS(array, row_num1, [row_num2], ...)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =CHOOSEROWS(A1:D10, 1, 5) <br>
+                    تعيد الصفين الأول والخامس من النطاق A1:D10.
+                </div>
+            </div>
+
+            <!-- New Formulas (51-100) -->
+            <h3 class="text-2xl font-semibold section-title text-emerald-800 mt-8">المزيد من دوال الإكسل</h3>
+
+            <!-- 51. SUMSQ Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">51. SUMSQ (مجموع المربعات)</h3>
+                <p class="mb-2">تعيد مجموع مربعات الوسيطات.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =SUMSQ(number1, [number2], ...)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =SUMSQ(A1:A3) <br>
+                    إذا كانت A1=2, A2=3, A3=4، تعيد 4+9+16=29.
+                </div>
+            </div>
+
+            <!-- 52. SQRT Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">52. SQRT (الجذر التربيعي)</h3>
+                <p class="mb-2">تعيد الجذر التربيعي الموجب لعدد.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =SQRT(number)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =SQRT(16) <br>
+                    تعيد 4.
+                </div>
+            </div>
+
+            <!-- 53. POWER Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">53. POWER (الأس)</h3>
+                <p class="mb-2">تعيد نتيجة رفع رقم إلى أس معين.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =POWER(number, power)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =POWER(2, 3) <br>
+                    تعيد 8 (2 أس 3).
+                </div>
+            </div>
+
+            <!-- 54. ABS Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">54. ABS (القيمة المطلقة)</h3>
+                <p class="mb-2">تعيد القيمة المطلقة لعدد (بدون إشارة).</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =ABS(number)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =ABS(-10) <br>
+                    تعيد 10.
+                </div>
+            </div>
+
+            <!-- 55. INT Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">55. INT (الجزء الصحيح)</h3>
+                <p class="mb-2">تقرب رقماً للأسفل إلى أقرب عدد صحيح.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =INT(number)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =INT(7.8) <br>
+                    تعيد 7.
+                </div>
+            </div>
+
+            <!-- 56. TRUNC Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">56. TRUNC (اقتطاع)</h3>
+                <p class="mb-2">تقتطع رقماً إلى عدد صحيح عن طريق إزالة الجزء الكسري.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =TRUNC(number, [num_digits])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =TRUNC(7.89, 1) <br>
+                    تعيد 7.8.
+                </div>
+            </div>
+
+            <!-- 57. MOD Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">57. MOD (باقي القسمة)</h3>
+                <p class="mb-2">تعيد باقي القسمة بعد قسمة رقم على قاسم.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =MOD(number, divisor)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =MOD(10, 3) <br>
+                    تعيد 1.
+                </div>
+            </div>
+
+            <!-- 58. RANK.EQ Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">58. RANK.EQ (الترتيب)</h3>
+                <p class="mb-2">تعيد ترتيب رقم في قائمة أرقام. إذا كانت هناك قيم متطابقة، فإنها تعيد نفس الترتيب.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =RANK.EQ(number, ref, [order])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =RANK.EQ(A1, A1:A5) <br>
+                    تعيد ترتيب قيمة A1 ضمن النطاق A1:A5.
+                </div>
+            </div>
+
+            <!-- 59. LARGE Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">59. LARGE (القيمة الكبرى N)</h3>
+                <p class="mb-2">تعيد القيمة الكبرى رقم K في مجموعة بيانات.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =LARGE(array, k)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =LARGE(A1:A5, 2) <br>
+                    تعيد ثاني أكبر قيمة في النطاق A1:A5.
+                </div>
+            </div>
+
+            <!-- 60. SMALL Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">60. SMALL (القيمة الصغرى N)</h3>
+                <p class="mb-2">تعيد القيمة الصغرى رقم K في مجموعة بيانات.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =SMALL(array, k)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =SMALL(A1:A5, 2) <br>
+                    تعيد ثاني أصغر قيمة في النطاق A1:A5.
+                </div>
+            </div>
+
+            <!-- 61. MODE.SNGL Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">61. MODE.SNGL (القيمة الأكثر تكراراً)</h3>
+                <p class="mb-2">تعيد القيمة الأكثر تكراراً في مجموعة بيانات.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =MODE.SNGL(number1, [number2], ...)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =MODE.SNGL(A1:A5) <br>
+                    إذا كانت A1:A5 تحتوي على {1,2,2,3,4}، تعيد 2.
+                </div>
+            </div>
+
+            <!-- 62. MEDIAN Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">62. MEDIAN (الوسيط)</h3>
+                <p class="mb-2">تعيد القيمة الوسيطة (التي في المنتصف) لمجموعة معينة من الأرقام.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =MEDIAN(number1, [number2], ...)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =MEDIAN(A1:A5) <br>
+                    إذا كانت A1:A5 تحتوي على {1,2,3,4,5}، تعيد 3.
+                </div>
+            </div>
+
+            <!-- 63. STDEV.S Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">63. STDEV.S (الانحراف المعياري للعينة)</h3>
+                <p class="mb-2">تحسب الانحراف المعياري بناءً على عينة.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =STDEV.S(number1, [number2], ...)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =STDEV.S(A1:A5)
+                </div>
+            </div>
+
+            <!-- 64. VAR.S Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">64. VAR.S (التباين للعينة)</h3>
+                <p class="mb-2">تحسب التباين بناءً على عينة.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =VAR.S(number1, [number2], ...)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =VAR.S(A1:A5)
+                </div>
+            </div>
+
+            <!-- 65. PV Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">65. PV (القيمة الحالية)</h3>
+                <p class="mb-2">تعيد القيمة الحالية للاستثمار.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =PV(rate, nper, pmt, [fv], [type])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =PV(5%/12, 60, -200) <br>
+                    تحسب القيمة الحالية لسلسلة مدفوعات شهرية.
+                </div>
+            </div>
+
+            <!-- 66. FV Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">66. FV (القيمة المستقبلية)</h3>
+                <p class="mb-2">تعيد القيمة المستقبلية للاستثمار.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =FV(rate, nper, pmt, [pv], [type])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =FV(5%/12, 60, -200) <br>
+                    تحسب القيمة المستقبلية لسلسلة مدفوعات شهرية.
+                </div>
+            </div>
+
+            <!-- 67. PMT Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">67. PMT (الدفعة)</h3>
+                <p class="mb-2">تحسب دفعة القرض بناءً على مدفوعات ثابتة ومعدل فائدة ثابت.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =PMT(rate, nper, pv, [fv], [type])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =PMT(5%/12, 30*12, 100000) <br>
+                    تحسب الدفعة الشهرية لقرض بقيمة 100,000 بمعدل فائدة 5% لمدة 30 سنة.
+                </div>
+            </div>
+
+            <!-- 68. NPER Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">68. NPER (عدد الفترات)</h3>
+                <p class="mb-2">تعيد عدد الفترات لاستثمار معين.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =NPER(rate, pmt, pv, [fv], [type])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =NPER(5%/12, -200, 10000) <br>
+                    تحسب عدد الدفعات المطلوبة لسداد 10,000 بدفعات 200.
+                </div>
+            </div>
+
+            <!-- 69. RATE Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">69. RATE (المعدل)</h3>
+                <p class="mb-2">تعيد معدل الفائدة لكل فترة من فترات القرض أو الاستثمار.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =RATE(nper, pmt, pv, [fv], [type], [guess])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =RATE(60, -200, 10000) <br>
+                    تحسب معدل الفائدة الشهري.
+                </div>
+            </div>
+
+            <!-- 70. IRR Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">70. IRR (معدل العائد الداخلي)</h3>
+                <p class="mb-2">تعيد معدل العائد الداخلي لسلسلة من التدفقات النقدية.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =IRR(values, [guess])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =IRR(A1:A5) <br>
+                    تحسب معدل العائد الداخلي للتدفقات النقدية في A1:A5.
+                </div>
+            </div>
+
+            <!-- 71. NPV Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">71. NPV (صافي القيمة الحالية)</h3>
+                <p class="mb-2">تحسب صافي القيمة الحالية لاستثمار باستخدام معدل خصم وسلسلة من المدفوعات (القيم السالبة) والدخل (القيم الموجبة) المستقبلية.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =NPV(rate, value1, [value2], ...)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =NPV(0.10, A1:A5) <br>
+                    تحسب صافي القيمة الحالية للتدفقات النقدية في A1:A5 بمعدل خصم 10%.
+                </div>
+            </div>
+
+            <!-- 72. ISNUMBER Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">72. ISNUMBER (هل هو رقم؟)</h3>
+                <p class="mb-2">تتحقق مما إذا كانت القيمة رقماً.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =ISNUMBER(value)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =ISNUMBER(A1) <br>
+                    تعيد TRUE إذا كانت A1 تحتوي على رقم.
+                </div>
+            </div>
+
+            <!-- 73. ISTEXT Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">73. ISTEXT (هل هو نص؟)</h3>
+                <p class="mb-2">تتحقق مما إذا كانت القيمة نصاً.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =ISTEXT(value)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =ISTEXT(A1) <br>
+                    تعيد TRUE إذا كانت A1 تحتوي على نص.
+                </div>
+            </div>
+
+            <!-- 74. ISBLANK Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">74. ISBLANK (هل هي فارغة؟)</h3>
+                <p class="mb-2">تتحقق مما إذا كانت القيمة فارغة.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =ISBLANK(value)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =ISBLANK(A1) <br>
+                    تعيد TRUE إذا كانت A1 فارغة.
+                </div>
+            </div>
+
+            <!-- 75. ISERROR Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">75. ISERROR (هل هو خطأ؟)</h3>
+                <p class="mb-2">تتحقق مما إذا كانت القيمة خطأ (أي خطأ).</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =ISERROR(value)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =ISERROR(A1/B1) <br>
+                    تعيد TRUE إذا كانت A1/B1 ينتج خطأ.
+                </div>
+            </div>
+
+            <!-- 76. ISNA Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">76. ISNA (هل هو #N/A؟)</h3>
+                <p class="mb-2">تتحقق مما إذا كانت القيمة هي خطأ #N/A.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =ISNA(value)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =ISNA(VLOOKUP("غير موجود", A:B, 2, FALSE)) <br>
+                    تعيد TRUE إذا كانت VLOOKUP تنتج خطأ #N/A.
+                </div>
+            </div>
+
+            <!-- 77. EXACT Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">77. EXACT (مطابقة تامة)</h3>
+                <p class="mb-2">تتحقق مما إذا كانت سلسلتان نصيتان متطابقتين تماماً (حساسة لحالة الأحرف).</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =EXACT(text1, text2)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =EXACT("Excel", "excel") <br>
+                    تعيد FALSE.
+                </div>
+            </div>
+
+            <!-- 78. PROPER Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">78. PROPER (أحرف كبيرة في بداية الكلمات)</h3>
+                <p class="mb-2">تحول الحرف الأول من كل كلمة في سلسلة نصية إلى حرف كبير، وبقية الأحرف إلى أحرف صغيرة.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =PROPER(text)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =PROPER("أحمد العليمي") <br>
+                    تعيد "أحمد العليمي".
+                </div>
+            </div>
+
+            <!-- 79. UPPER Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">79. UPPER (أحرف كبيرة)</h3>
+                <p class="mb-2">تحول جميع الأحرف في سلسلة نصية إلى أحرف كبيرة.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =UPPER(text)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =UPPER("excel") <br>
+                    تعيد "EXCEL".
+                </div>
+            </div>
+
+            <!-- 80. LOWER Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">80. LOWER (أحرف صغيرة)</h3>
+                <p class="mb-2">تحول جميع الأحرف في سلسلة نصية إلى أحرف صغيرة.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =LOWER(text)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =LOWER("EXCEL") <br>
+                    تعيد "excel".
+                </div>
+            </div>
+
+            <!-- 81. REPT Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">81. REPT (تكرار نص)</h3>
+                <p class="mb-2">تكرر النص لعدد محدد من المرات.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =REPT(text, number_times)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =REPT("-", 5) <br>
+                    تعيد "-----".
+                </div>
+            </div>
+
+            <!-- 82. CODE Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">82. CODE (رمز الحرف)</h3>
+                <p class="mb-2">تعيد الرمز الرقمي للحرف الأول في سلسلة نصية.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =CODE(text)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =CODE("A") <br>
+                    تعيد 65.
+                </div>
+            </div>
+
+            <!-- 83. CHAR Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">83. CHAR (الحرف من الرمز)</h3>
+                <p class="mb-2">تعيد الحرف المحدد بواسطة رمز رقمي.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =CHAR(number)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =CHAR(65) <br>
+                    تعيد "A".
+                </div>
+            </div>
+
+            <!-- 84. SEARCH Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">84. SEARCH (البحث عن نص - غير حساسة لحالة الأحرف)</h3>
+                <p class="mb-2">تبحث عن سلسلة نصية داخل سلسلة نصية أخرى، وتعيد موضع البداية للسلسلة الأولى (غير حساسة لحالة الأحرف).</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =SEARCH(find_text, within_text, [start_num])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =SEARCH("excel", "دليل Excel") <br>
+                    تعيد 6.
+                </div>
+            </div>
+
+            <!-- 85. REPLACEB Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">85. REPLACEB (استبدال نص بالبايت)</h3>
+                <p class="mb-2">تستبدل جزءاً من سلسلة نصية بسلسلة نصية أخرى، بناءً على عدد البايتات.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =REPLACEB(old_text, start_byte, num_bytes, new_text)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =REPLACEB("ABCDE", 2, 2, "FG") <br>
+                    تعيد "AFGDE".
+                </div>
+            </div>
+
+            <!-- 86. SUBSTITUTEB Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">86. SUBSTITUTEB (استبدال نص محدد بالبايت)</h3>
+                <p class="mb-2">تستبدل جميع تكرارات نص معين بنص آخر في سلسلة نصية، بناءً على عدد البايتات.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =SUBSTITUTEB(text, old_text, new_text, [instance_num])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =SUBSTITUTEB("تفاح", "ف", "ج") <br>
+                    تعيد "تجاج".
+                </div>
+            </div>
+
+            <!-- 87. VALUE Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">87. VALUE (قيمة)</h3>
+                <p class="mb-2">تحول سلسلة نصية تمثل رقماً إلى رقم.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =VALUE(text)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =VALUE("123") + 10 <br>
+                    تعيد 133.
+                </div>
+            </div>
+
+            <!-- 88. CLEAN Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">88. CLEAN (تنظيف النص)</h3>
+                <p class="mb-2">تزيل جميع الأحرف غير القابلة للطباعة من النص.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =CLEAN(text)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =CLEAN(CHAR(7)&"نص غير نظيف") <br>
+                    تزيل الحرف غير القابل للطباعة.
+                </div>
+            </div>
+
+            <!-- 89. CONCAT Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">89. CONCAT (دمج)</h3>
+                <p class="mb-2">تدمج قائمة أو نطاق من سلاسل نصية. (أحدث من CONCATENATE)</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =CONCAT(text1, [text2], ...) أو =CONCAT(range)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =CONCAT(A1:A3) <br>
+                    إذا كانت A1="أ", A2="ب", A3="ج"، تعيد "أبج".
+                </div>
+            </div>
+
+            <!-- 90. TEXTJOIN Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">90. TEXTJOIN (دمج النصوص بفاصل)</h3>
+                <p class="mb-2">تدمج النصوص من نطاقات متعددة أو سلاسل نصية مع فاصل تحدده.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =TEXTJOIN(delimiter, ignore_empty, text1, [text2], ...)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =TEXTJOIN(", ", TRUE, A1:A3) <br>
+                    إذا كانت A1="تفاح", A2="برتقال", A3="موز"، تعيد "تفاح, برتقال, موز".
+                </div>
+            </div>
+
+            <!-- 91. YEAR Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">91. YEAR (السنة)</h3>
+                <p class="mb-2">تعيد السنة كعدد صحيح من تاريخ معين.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =YEAR(serial_number)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =YEAR(TODAY()) <br>
+                    تعيد السنة الحالية.
+                </div>
+            </div>
+
+            <!-- 92. MONTH Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">92. MONTH (الشهر)</h3>
+                <p class="mb-2">تعيد الشهر كعدد صحيح (1 إلى 12) من تاريخ معين.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =MONTH(serial_number)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =MONTH(TODAY()) <br>
+                    تعيد الشهر الحالي.
+                </div>
+            </div>
+
+            <!-- 93. DAY Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">93. DAY (اليوم)</h3>
+                <p class="mb-2">تعيد اليوم كعدد صحيح (1 إلى 31) من تاريخ معين.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =DAY(serial_number)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =DAY(TODAY()) <br>
+                    تعيد اليوم الحالي من الشهر.
+                </div>
+            </div>
+
+            <!-- 94. WEEKDAY Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">94. WEEKDAY (يوم الأسبوع)</h3>
+                <p class="mb-2">تعيد يوم الأسبوع لرمز تاريخي (1 للأحد، 2 للإثنين، وهكذا).</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =WEEKDAY(serial_number, [return_type])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =WEEKDAY(TODAY(), 2) <br>
+                    تعيد رقم يوم الأسبوع (1 للإثنين، 7 للأحد).
+                </div>
+            </div>
+
+            <!-- 95. WEEKNUM Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">95. WEEKNUM (رقم الأسبوع)</h3>
+                <p class="mb-2">تعيد رقم الأسبوع في السنة لتاريخ معين.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =WEEKNUM(serial_number, [return_type])
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =WEEKNUM(TODAY()) <br>
+                    تعيد رقم الأسبوع الحالي في السنة.
+                </div>
+            </div>
+
+            <!-- 96. HOUR Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">96. HOUR (الساعة)</h3>
+                <p class="mb-2">تعيد الساعة كعدد صحيح (0 إلى 23) من قيمة وقت.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =HOUR(serial_number)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =HOUR(NOW()) <br>
+                    تعيد الساعة الحالية.
+                </div>
+            </div>
+
+            <!-- 97. MINUTE Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">97. MINUTE (الدقيقة)</h3>
+                <p class="mb-2">تعيد الدقيقة كعدد صحيح (0 إلى 59) من قيمة وقت.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =MINUTE(serial_number)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =MINUTE(NOW()) <br>
+                    تعيد الدقيقة الحالية.
+                </div>
+            </div>
+
+            <!-- 98. SECOND Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">98. SECOND (الثانية)</h3>
+                <p class="mb-2">تعيد الثانية كعدد صحيح (0 إلى 59) من قيمة وقت.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =SECOND(serial_number)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =SECOND(NOW()) <br>
+                    تعيد الثانية الحالية.
+                </div>
+            </div>
+
+            <!-- 99. TIME Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">99. TIME (الوقت)</h3>
+                <p class="mb-2">تنشئ قيمة وقت من ساعة ودقيقة وثانية محددة.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =TIME(hour, minute, second)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =TIME(14, 30, 0) <br>
+                    تنشئ وقت 02:30:00 مساءً.
+                </div>
+            </div>
+
+            <!-- 100. EDATE Formula -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">100. EDATE (تاريخ بعد أشهر)</h3>
+                <p class="mb-2">تعيد تاريخاً يقع بعد عدد محدد من الأشهر قبل أو بعد تاريخ البدء.</p>
+                <p class="font-semibold mb-1">الصيغة:</p>
+                <div class="code-block mb-3">
+                    =EDATE(start_date, months)
+                </div>
+                <p class="font-semibold mb-1">مثال:</p>
+                <div class="code-block">
+                    =EDATE(TODAY(), 3) <br>
+                    تعيد تاريخاً بعد 3 أشهر من اليوم.
+                </div>
+            </div>
+
+
+            <!-- Note for future expansion -->
+            <div class="card bg-blue-50 border-l-4 border-blue-500 text-blue-800 p-4" role="alert">
+                <p class="font-bold">ملاحظة:</p>
+                <p>هذا القسم سيتم توسيعه ليشمل أكثر من 200 دالة من دوال الإكسل الهامة مع شروحات وأمثلة مفصلة. ترقبوا المزيد من التحديثات!</p>
+            </div>
+
+        </section>
+
+        <!-- Shortcuts Section -->
+        <section id="shortcuts" class="content-section mb-12">
+            <h2 class="text-3xl font-semibold section-title text-emerald-800">اختصارات الإكسل الهامة</h2> <!-- Green title - previously indigo -->
+            <p class="text-lg mb-6">استخدم هذه الاختصارات لتوفير الوقت وزيادة سرعتك في العمل.</p>
+
+            <div class="card table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الاختصار</th>
+                            <th>الوصف</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="code-block">Ctrl + C</td>
+                            <td>نسخ التحديد.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + V</td>
+                            <td>لصق المحتوى المنسوخ.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + X</td>
+                            <td>قص التحديد.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Z</td>
+                            <td>التراجع عن آخر إجراء.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Y</td>
+                            <td>إعادة آخر إجراء تم التراجع عنه.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + S</td>
+                            <td>حفظ المصنف.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + N</td>
+                            <td>إنشاء مصنف جديد.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + O</td>
+                            <td>فتح مصنف موجود.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + P</td>
+                            <td>فتح نافذة الطباعة.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">F2</td>
+                            <td>تعديل محتويات الخلية المحددة.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + A</td>
+                            <td>تحديد كل المحتويات في ورقة العمل.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + B</td>
+                            <td>تطبيق أو إزالة التنسيق الغامق (Bold).</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + I</td>
+                            <td>تطبيق أو إزالة التنسيق المائل (Italic).</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + U</td>
+                            <td>تطبيق أو إزالة التنسيق المسطر (Underline).</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Shift + L</td>
+                            <td>تطبيق أو إزالة عوامل التصفية (Filters).</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Alt + Enter</td>
+                            <td>إضافة سطر جديد داخل الخلية.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Page Up / Page Down</td>
+                            <td>التنقل بين أوراق العمل.</td>
+                        </tr>
+                        <!-- New Shortcuts (18-67) -->
+                        <tr>
+                            <td class="code-block">Ctrl + D</td>
+                            <td>نسخ المحتوى من الخلية العلوية إلى الخلية المحددة.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + R</td>
+                            <td>نسخ المحتوى من الخلية اليسرى إلى الخلية المحددة.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + 1</td>
+                            <td>فتح مربع حوار تنسيق الخلايا (Format Cells).</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + 5</td>
+                            <td>تطبيق أو إزالة تنسيق يتوسطه خط (Strikethrough).</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + 9</td>
+                            <td>إخفاء الصفوف المحددة.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + 0</td>
+                            <td>إخفاء الأعمدة المحددة.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Shift + (</td>
+                            <td>إظهار الصفوف المخفية.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Shift + )</td>
+                            <td>إظهار الأعمدة المخفية.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + ;</td>
+                            <td>إدراج التاريخ الحالي.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Shift + :</td>
+                            <td>إدراج الوقت الحالي.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + K</td>
+                            <td>إدراج ارتباط تشعبي (Hyperlink).</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + F</td>
+                            <td>فتح مربع حوار البحث (Find).</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + H</td>
+                            <td>فتح مربع حوار الاستبدال (Replace).</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + G أو F5</td>
+                            <td>فتح مربع حوار الانتقال إلى (Go To).</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Shift + + (علامة زائد)</td>
+                            <td>إدراج خلايا/صفوف/أعمدة.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + - (علامة ناقص)</td>
+                            <td>حذف خلايا/صفوف/أعمدة.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Shift + %</td>
+                            <td>تطبيق تنسيق النسبة المئوية.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Shift + $</td>
+                            <td>تطبيق تنسيق العملة.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Shift + #</td>
+                            <td>تطبيق تنسيق التاريخ.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Shift + @</td>
+                            <td>تطبيق تنسيق الوقت.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Shift + !</td>
+                            <td>تطبيق تنسيق الرقم مع فاصل الآلاف.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Shift + ~</td>
+                            <td>تطبيق تنسيق عام (General).</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Home</td>
+                            <td>الانتقال إلى الخلية A1.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + End</td>
+                            <td>الانتقال إلى آخر خلية مستخدمة في ورقة العمل.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Arrow Keys</td>
+                            <td>التنقل إلى حافة منطقة البيانات.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Shift + Arrow Keys</td>
+                            <td>تحديد الخلايا.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Shift + Arrow Keys</td>
+                            <td>تحديد نطاق من الخلايا إلى حافة منطقة البيانات.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Alt + =</td>
+                            <td>إدراج دالة الجمع التلقائي (AutoSum).</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + ' (فاصلة علوية)</td>
+                            <td>عرض الصيغ بدلاً من القيم.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + ;</td>
+                            <td>إدراج التاريخ الحالي.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Shift + ;</td>
+                            <td>إدراج الوقت الحالي.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">F4</td>
+                            <td>تكرار آخر إجراء أو تبديل المراجع المطلقة/النسبية.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Shift + F2</td>
+                            <td>إضافة/تحرير تعليق خلية.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Shift + F10</td>
+                            <td>فتح قائمة السياق (Right-click menu).</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + F3</td>
+                            <td>فتح مربع حوار إدارة الأسماء (Name Manager).</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Shift + F3</td>
+                            <td>إنشاء أسماء من التحديد.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + [</td>
+                            <td>تحديد جميع الخلايا التي تشير إليها الصيغة في الخلية النشطة.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + ]</td>
+                            <td>تحديد جميع الخلايا التي تحتوي على صيغ تشير إلى الخلية النشطة.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Enter</td>
+                            <td>ملء النطاق المحدد بنفس القيمة أو الصيغة.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Alt + H + O + I</td>
+                            <td>احتواء عرض العمود تلقائياً.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Alt + H + O + A</td>
+                            <td>احتواء ارتفاع الصف تلقائياً.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Shift + Enter</td>
+                            <td>إدخال صيغة مصفوفة (Array Formula).</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + T أو Ctrl + L</td>
+                            <td>إنشاء جدول (Table).</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Alt + F1</td>
+                            <td>إنشاء مخطط مضمن (Embedded Chart).</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">F11</td>
+                            <td>إنشاء مخطط في ورقة عمل جديدة.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Shift + Page Up / Page Down</td>
+                            <td>تحديد أوراق عمل متعددة.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Tab</td>
+                            <td>التنقل بين المصنفات المفتوحة.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + W</td>
+                            <td>إغلاق المصنف الحالي.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + F4</td>
+                            <td>إغلاق المصنف الحالي.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Alt + F4</td>
+                            <td>إغلاق برنامج الإكسل.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">F7</td>
+                            <td>التدقيق الإملائي.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Shift + F7</td>
+                            <td>فتح قاموس المرادفات (Thesaurus).</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + F9</td>
+                            <td>تصغير نافذة المصنف.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + F10</td>
+                            <td>تكبير/استعادة نافذة المصنف.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Alt + H + B + A</td>
+                            <td>إضافة جميع الحدود للخلية المحددة.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Alt + H + B + N</td>
+                            <td>إزالة جميع الحدود من الخلية المحددة.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Shift + &</td>
+                            <td>تطبيق حدود خارجية (Outline Border).</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Shift + _</td>
+                            <td>إزالة حدود خارجية (Remove Outline Border).</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Spacebar</td>
+                            <td>تحديد العمود بأكمله.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Shift + Spacebar</td>
+                            <td>تحديد الصف بأكمله.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Shift + End</td>
+                            <td>تحديد الخلايا من الخلية النشطة إلى آخر خلية مستخدمة.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Shift + Home</td>
+                            <td>تحديد الخلايا من الخلية النشطة إلى الخلية A1.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Ctrl + Shift + * (علامة النجمة)</td>
+                            <td>تحديد المنطقة الحالية.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">F9</td>
+                            <td>حساب جميع المصنفات المفتوحة.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Shift + F9</td>
+                            <td>حساب ورقة العمل النشطة.</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Alt + F8</td>
+                            <td>فتح مربع حوار وحدات الماكرو (Macros).</td>
+                        </tr>
+                        <tr>
+                            <td class="code-block">Alt + F11</td>
+                            <td>فتح محرر Visual Basic for Applications (VBA).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Problem Solutions Section -->
+        <section id="problems" class="content-section mb-12">
+            <h2 class="text-3xl font-semibold section-title text-emerald-800">حلول مشاكل الإكسل الشائعة</h2> <!-- Green title - previously indigo -->
+            <p class="text-lg mb-6">إليك بعض الحلول للمشاكل التي قد تواجهها أثناء استخدام الإكسل.</p>
+
+            <!-- Problem 1: Removing Duplicates -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">1. إزالة القيم المكررة</h3>
+                <p class="mb-2">لإزالة الصفوف التي تحتوي على قيم مكررة من نطاق البيانات:</p>
+                <ol class="list-decimal list-inside space-y-2 text-lg">
+                    <li>حدد النطاق الذي يحتوي على البيانات التي تريد إزالة التكرارات منها.</li>
+                    <li>انتقل إلى علامة التبويب <span class="font-semibold">بيانات (Data)</span> في الشريط.</li>
+                    <li>في مجموعة <span class="font-semibold">أدوات البيانات (Data Tools)</span>، انقر على <span class="font-semibold">إزالة التكرارات (Remove Duplicates)</span>.</li>
+                    <li>سيظهر مربع حوار، حدد الأعمدة التي تريد استخدامها لتحديد القيم المكررة.</li>
+                    <li>انقر على <span class="font-semibold">موافق (OK)</span>.</li>
+                </ol>
+            </div>
+
+            <!-- Problem 2: Freezing Panes -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">2. تجميد الأجزاء (تثبيت الصفوف/الأعمدة)</h3>
+                <p class="mb-2">لتثبيت صفوف أو أعمدة معينة بحيث تظل مرئية عند التمرير:</p>
+                <ol class="list-decimal list-inside space-y-2 text-lg">
+                    <li>لتجميد الصف العلوي: اذهب إلى علامة التبويب <span class="font-semibold">عرض (View)</span>، ثم <span class="font-semibold">تجميد الأجزاء (Freeze Panes)</span>، واختر <span class="font-semibold">تجميد الصف العلوي (Freeze Top Row)</span>.</li>
+                    <li>لتجميد العمود الأول: اذهب إلى علامة التبويب <span class="font-semibold">عرض (View)</span>، ثم <span class="font-semibold">تجميد الأجزاء (Freeze Panes)</span>، واختر <span class="font-semibold">تجميد العمود الأول (Freeze First Column)</span>.</li>
+                    <li>لتجميد صفوف وأعمدة متعددة: حدد الخلية التي تقع أسفل الصفوف التي تريد تجميدها وإلى يمين الأعمدة التي تريد تجميدها. ثم اذهب إلى <span class="font-semibold">عرض (View)</span>، <span class="font-semibold">تجميد الأجزاء (Freeze Panes)</span>، واختر <span class="font-semibold">تجميد الأجزاء (Freeze Panes)</span>.</li>
+                </ol>
+            </div>
+
+            <!-- Problem 3: #DIV/0! Error -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">3. حل خطأ #DIV/0!</h3>
+                <p class="mb-2">يظهر هذا الخطأ عندما تحاول القسمة على صفر أو خلية فارغة. لحل المشكلة أو إخفاء الخطأ:</p>
+                <ul class="list-disc list-inside space-y-2 text-lg">
+                    <li><span class="font-semibold">تأكد من أن المقام ليس صفراً:</span> راجع الخلايا المستخدمة كقاسم وتأكد من أنها لا تحتوي على صفر أو أنها فارغة.</li>
+                    <li><span class="font-semibold">استخدام دالة IFERROR:</span> يمكنك استخدام دالة IFERROR لإظهار رسالة مخصصة أو خلية فارغة بدلاً من الخطأ.
+                        <div class="code-block mt-2">
+                            =IFERROR(A1/B1, "رسالة الخطأ أو قيمة بديلة") <br>
+                            مثال: <span class="font-semibold">=IFERROR(A1/B1, "لا يمكن القسمة على صفر")</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Problem 4: Text to Columns -->
+            <div class="card">
+                <h3 class="text-2xl font-medium text-emerald-700 mb-3">4. تحويل النص إلى أعمدة</h3>
+                <p class="mb-2">لفصل البيانات الموجودة في عمود واحد إلى أعمدة متعددة (مثلاً، فصل الاسم الأول عن الاسم الأخير):</p>
+                <ol class="list-decimal list-inside space-y-2 text-lg">
+                    <li>حدد العمود الذي يحتوي على النص الذي تريد تقسيمه.</li>
+                    <li>انتقل إلى علامة التبويب <span class="font-semibold">بيانات (Data)</span> في الشريط.</li>
+                    <li>في مجموعة <span class="font-semibold">أدوات البيانات (Data Tools)</span>، انقر على <span class="font-semibold">نص إلى أعمدة (Text to Columns)</span>.</li>
+                    <li>اتبع معالج <span class="font-semibold">تحويل النص إلى أعمدة</span>:
+                        <ul class="list-disc list-inside ml-4">
+                            <li>اختر <span class="font-semibold">محدد (Delimited)</span> إذا كانت البيانات مفصولة بفاصلة أو مسافة أو علامة تبويب، ثم انقر على <span class="font-semibold">التالي (Next)</span>.</li>
+                            <li>حدد الفاصل المناسب (مثل المسافة، الفاصلة، إلخ)، ثم انقر على <span class="font-semibold">التالي (Next)</span>.</li>
+                            <li>حدد تنسيق البيانات لكل عمود جديد وخلية الوجهة، ثم انقر على <span class="font-semibold">إنهاء (Finish)</span>.</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-emerald-700 text-white py-6 rounded-t-xl shadow-lg mt-8"> <!-- Green footer - previously indigo -->
+        <div class="container text-center">
+            <p>&copy; 2023 دليل الإكسل الشامل. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Function to convert markdown table to HTML table
+        function convertMarkdownTableToHtml(markdown) {
+            const lines = markdown.trim().split('\n');
+            if (lines.length < 2) return markdown; // Not enough lines for a table
+
+            const headerLine = lines[0];
+            const separatorLine = lines[1];
+
+            // Basic check for markdown table format
+            // Checks if header starts with '|' and separator contains '---'
+            if (!headerLine.startsWith('|') || !separatorLine.includes('---')) {
+                return markdown; // Not a valid markdown table, return original
+            }
+
+            let html = '<div class="table-container">'; // Wrap table in a div for consistent spacing and overflow
+            html += '<table class="min-w-full divide-y divide-gray-200 rounded-lg overflow-hidden">';
+            html += '<thead class="bg-emerald-100">';
+            html += '<tr>';
+            // Split header by '|', filter out empty strings (from leading/trailing '|'), and map to <th>
+            headerLine.split('|').filter(h => h.trim() !== '').forEach(headerText => {
+                html += `<th class="px-6 py-3 text-right text-xs font-medium text-emerald-700 uppercase tracking-wider">${headerText.trim()}</th>`;
+            });
+            html += '</tr>';
+            html += '</thead>';
+            html += '<tbody class="bg-white divide-y divide-gray-200">';
+
+            // Start from the third line (index 2) for data rows
+            for (let i = 2; i < lines.length; i++) {
+                const dataLine = lines[i];
+                if (dataLine.trim() === '') continue; // Skip empty lines
+
+                html += '<tr>';
+                // Split data line by '|', filter out empty strings, and map to <td>
+                dataLine.split('|').filter(d => d.trim() !== '').forEach(cellText => {
+                    html += `<td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${cellText.trim()}</td>`;
+                });
+                html += '</tr>';
+            }
+
+            html += '</tbody>';
+            html += '</table>';
+            html += '</div>'; // Close table-container
+
+            return html;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const navButtons = document.querySelectorAll('.nav-button');
+            const contentSections = document.querySelectorAll('.content-section');
+            const aiInput = document.getElementById('ai-input');
+            const aiButton = document.getElementById('ai-button');
+            const aiLoading = document.getElementById('ai-loading');
+            const aiOutput = document.getElementById('ai-output');
+            const aiResponseContent = document.getElementById('ai-response-content');
+
+            // Function to show a specific section and hide others
+            function showSection(targetId) {
+                contentSections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                document.getElementById(targetId).classList.add('active');
+
+                // Update active state for navigation buttons
+                navButtons.forEach(button => {
+                    if (button.dataset.target === targetId) {
+                        button.classList.add('active');
+                    } else {
+                        button.classList.remove('active');
+                    }
+                });
+            }
+
+            // Add click event listeners to navigation buttons
+            navButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.dataset.target;
+                    showSection(targetId);
+                });
+            });
+
+            // Initially show the home section
+            showSection('home');
+
+            // AI Feature Logic
+            aiButton.addEventListener('click', async () => {
+                const prompt = aiInput.value.trim();
+                if (!prompt) {
+                    aiResponseContent.innerHTML = '<p class="text-red-500">الرجاء إدخال سؤال أو طلب.</p>';
+                    aiOutput.classList.remove('hidden');
+                    return;
+                }
+
+                aiLoading.classList.remove('hidden');
+                aiOutput.classList.add('hidden'); // Hide previous output
+                aiResponseContent.innerHTML = ''; // Clear previous content
+
+                try {
+                    let chatHistory = [];
+                    // Instruct the LLM to act as an Excel expert and provide clear, concise answers.
+                    chatHistory.push({ role: "user", parts: [{ text: `بصفتك خبيرًا في Microsoft Excel، قم بالآتي بناءً على طلب المستخدم:
+                    1. إذا طلب المستخدم شرح دالة، فاشرحها بوضوح وقدم مثالاً عملياً.
+                    2. إذا طلب المستخدم إنشاء دالة بناءً على وصف، فأنشئ الدالة الصحيحة وقدم مثالاً توضيحياً.
+                    3. إذا كان الطلب يتعلق بمشكلة أو استفسار عام حول Excel، فقدم حلاً أو إجابة مفيدة.
+                    4. اجعل الإجابات مختصرة ومباشرة قدر الإمكان.
+                    5. استخدم تنسيق Markdown لتنسيق الدالة والأمثلة، واستخدم جداول Markdown إذا كانت الإجابة تتطلب عرض بيانات جدولية.
+
+                    طلب المستخدم: ${prompt}` }] });
+
+                    const payload = { contents: chatHistory };
+                    const apiKey = ""; // Leave this as-is; Canvas will provide it at runtime.
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const result = await response.json();
+
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        let text = result.candidates[0].content.parts[0].text;
+
+                        // First, replace markdown code blocks with HTML pre/code for styling
+                        text = text.replace(/```excel\n([\s\S]*?)\n```/g, '<div class="code-block">$1</div>')
+                                  .replace(/```([\s\S]*?)\n```/g, '<div class="code-block">$1</div>');
+
+                        // Then, replace markdown tables with HTML tables
+                        // This regex looks for a block that starts with a header line (containing '|'),
+                        // followed by a separator line (containing '|' and '---'),
+                        // followed by one or more data lines (containing '|').
+                        // The 'm' flag is crucial for multiline matching.
+                        const markdownTableRegex = /^\|.*\|\r?\n(?:\|[-: ]+\|\r?\n)+(?:\|.*\|\r?\n)*$/gm;
+
+                        text = text.replace(markdownTableRegex, (match) => {
+                            return convertMarkdownTableToHtml(match);
+                        });
+
+                        aiResponseContent.innerHTML = text;
+                    } else {
+                        aiResponseContent.innerHTML = '<p class="text-red-500">عذرًا، لم أتمكن من الحصول على إجابة. الرجاء المحاولة مرة أخرى.</p>';
+                        console.error('Unexpected API response structure:', result);
+                    }
+                } catch (error) {
+                    aiResponseContent.innerHTML = '<p class="text-red-500">حدث خطأ أثناء الاتصال بالذكاء الاصطناعي. الرجاء التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.</p>';
+                    console.error('Error calling Gemini API:', error);
+                } finally {
+                    aiLoading.classList.add('hidden');
+                    aiOutput.classList.remove('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
